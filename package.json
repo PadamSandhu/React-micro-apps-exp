@@ -1,0 +1,25 @@
+{
+  "name": "react-micro-apps",
+  "version": "1.0.0",
+  "description": "Multiple react apps on different host",
+  "main": "index.js",
+  "scripts": {
+    "build-parent-app": "cd apps/parent-app && npm install && npm run build",
+    "build-header": "cd apps/header && npm install && npm run build",
+    "build-page-1": "cd apps/page-1 && npm install && npm run build",
+    "build-page-2": "cd apps/page-2 && npm install && npm run build",
+    "start-parent-app": "cd apps/parent-app && npm run start",
+    "start-header": "cd apps/header && npm run start",
+    "start-page-1": "cd apps/page-1 && npm run start",
+    "start-page-2": "cd apps/page-2 && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm-run-all --parallel build-parent-app build-header build-page-1 build-page-2",
+    "start": "npm-run-all --parallel start-header start-page-1 start-page-2 start-parent-app --sequential",
+    "start-project": "npm run build && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
